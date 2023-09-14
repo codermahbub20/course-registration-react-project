@@ -22,7 +22,7 @@ const Course = ({ course ,handleClickToAdd}) => {
                         <p className='text-xl font-medium'>Credit: {credit}</p>
                     </div>
                     <div >
-                        <button onClick={()=>handleClickToAdd()} className="w-full btn btn-primary text-2xl">Select</button>
+                        <button onClick={()=>handleClickToAdd(course)} className="w-full btn btn-primary text-2xl">Select</button>
                     </div>
                 </div>
             </div>

@@ -1,14 +1,15 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import Course from '../Course/Course';
 
-const Courses = () => {
+const Courses = ({handleClickToAdd}) => {
 
     const [courses,setCourses] = useState([]);
 
-    const handleClickToAdd = () =>{
-        console.log("Hello World");
-    }
+    // const handleClickToAdd = () =>{
+    //     setCourses("Hello World");
+    // }
 
     useEffect(()=>{
         fetch('courses.json')
@@ -20,7 +21,7 @@ const Courses = () => {
         <div className='w-3/4 mt-14'>
            <div className='grid grid-cols-3 gap-4 p-3'>
            {
-              courses.map(course => <Course key={courses.id} handleClickToAdd ={handleClickToAdd} course={course}> </Course>)
+              courses.map(course => <Course key={course.id} handleClickToAdd={handleClickToAdd} course={course}> </Course>)
             }
            </div>
         </div>

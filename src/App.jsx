@@ -17,7 +17,7 @@ function App() {
   return (
 
     <>
-      <h1 className='text-3xl font-medium text-center'>Course Registration</h1>
+      <h1 className='text-3xl font-medium text-center mt-4'>Course Registration</h1>
       <div className='flex'>
       <Courses handleClickToAdd={handleClickToAdd}></Courses>
       <Bookmarks bookmarks={bookmarks}></Bookmarks>

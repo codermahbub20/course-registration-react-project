@@ -8,9 +8,11 @@ const Bookmarks = ({bookmarks}) => {
    
     return (
         <div className='w-1/4 mt-14'>
+             <h1 className='text-2xl font-medium mb-5'>Course Name: </h1>
            {
             bookmarks.map(bookmark => <Bookmark key={bookmark.id} bookmark={bookmark}></Bookmark>)
            }
+            <hr />
         </div>
     );
 };

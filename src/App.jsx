@@ -13,22 +13,30 @@ function App() {
   const [bookmarks, setBookmarks] = useState([]);
   const [totalcredit, setTotalCredit] = useState(0);
   const [totalRemining, setTotalRemining] = useState(20);
+  const [totalCost, setTotalCost] = useState(0);
 
   const handleClickToAdd = course => {
 
     const isExist = bookmarks.find((item) => item.id == course.id);
+
     let count = course.credit;
+    let cost = course.price;
+
     if (isExist) {
       return  toast.warn("You Already Enrolled This Course!!");
     } else {
 
       bookmarks.forEach(element => {
         count = count + element.credit;
+        cost = parseInt(cost) + parseInt(element.price);
       });
       const totalRemining = 20 - count;
       if(totalRemining < 0 ){
         return toast.error("Your Credit Hour almost Done, You can not Buy Another Course!!");
       }
+
+
+      setTotalCost(cost);
       setTotalCredit(count);
       setTotalRemining(totalRemining);
       const newBookmarks = [...bookmarks, course];
@@ -44,7 +52,7 @@ function App() {
       <h1 className='text-3xl font-medium text-center mt-4'>Course Registration</h1>
       <div className='flex'>
         <Courses handleClickToAdd={handleClickToAdd}></Courses>
-        <Bookmarks bookmarks={bookmarks} totalRemining={totalRemining} totalcredit={totalcredit}></Bookmarks>
+        <Bookmarks bookmarks={bookmarks} totalCost={totalCost} totalRemining={totalRemining} totalcredit={totalcredit}></Bookmarks>
       </div>
       <ToastContainer />
     </>

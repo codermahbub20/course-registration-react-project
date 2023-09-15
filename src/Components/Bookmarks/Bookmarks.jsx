@@ -4,7 +4,7 @@
 import React from 'react';
 import Bookmark from './Bookmark';
 
-const Bookmarks = ({bookmarks,totalRemining, totalcredit}) => {
+const Bookmarks = ({bookmarks,totalRemining, totalcredit,totalCost}) => {
    
     return (
         <div className='w-1/4 mt-14 bg-white shadow-2xl rounded-2xl mr-2 p-4'>
@@ -17,6 +17,7 @@ const Bookmarks = ({bookmarks,totalRemining, totalcredit}) => {
            <br /> <hr /><br />
            <h1 className='text-2xl font-medium mt-5'>Total Credit Hour : {totalcredit}</h1>
             <hr />
+            <h1 className='text-2xl font-medium mt-5'>Total Price: {totalCost} USD</h1>
         </div>
     );
 };

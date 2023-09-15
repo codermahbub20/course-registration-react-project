@@ -5,6 +5,9 @@ import './App.css'
 import Bookmarks from './Components/Bookmarks/Bookmarks'
 import Courses from './Components/Courses/Courses'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
   const [bookmarks, setBookmarks] = useState([]);
@@ -16,17 +19,16 @@ function App() {
     const isExist = bookmarks.find((item) => item.id == course.id);
     let count = course.credit;
     if (isExist) {
-      // <div className="toast">
-      //   <div className="alert alert-info">
-      //     <span>New message arrived.</span>
-      //   </div>
-      // </div>
+      return  toast.warn("You Already Enrolled This Course!!");
     } else {
 
       bookmarks.forEach(element => {
         count = count + element.credit;
       });
       const totalRemining = 20 - count;
+      if(totalRemining < 0 ){
+        return toast.error("Your Credit Hour almost Done, You can not Buy Another Course!!");
+      }
       setTotalCredit(count);
       setTotalRemining(totalRemining);
       const newBookmarks = [...bookmarks, course];
@@ -44,6 +46,7 @@ function App() {
         <Courses handleClickToAdd={handleClickToAdd}></Courses>
         <Bookmarks bookmarks={bookmarks} totalRemining={totalRemining} totalcredit={totalcredit}></Bookmarks>
       </div>
+      <ToastContainer />
     </>
   )
 }

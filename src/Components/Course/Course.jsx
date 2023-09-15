@@ -14,12 +14,12 @@ const Course = ({ course ,handleClickToAdd}) => {
                 <figure><img className='h-[244px] rounded-lg p-3' src={thumbnail} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-xl">{course_name}</h2>
-                    <p>{details}</p>
+                    <p className='text-gray-800'>{details}</p>
                     <div className='flex'>
                         <img className='w-6' src={dollar} alt="" />
-                        <p className='text-xl font-medium'>Price: {price}</p>
+                        <p className='text-xl text-gray-700'>Price: {price}</p>
                         <img className='w-6 mr-1' src={book} alt="" />
-                        <p className='text-xl font-medium'>Credit: {credit}</p>
+                        <p className='text-xl text-gray-700'>Credit: {credit}hr</p>
                     </div>
                     <div >
                         <button onClick={()=>handleClickToAdd(course)} className="w-full btn btn-primary text-2xl">Select</button>

@@ -9,7 +9,7 @@ const Bookmark = ({bookmark}) => {
         <div > 
           {/* <h1>{total}</h1> */}
        
-          <li className='bg-gray-100 mb-2 text-2xl '>{course_name}</li>
+          <li className=' text-gray-800 mb-2 text-2xl '>{course_name}</li>
          
         </div>
     );

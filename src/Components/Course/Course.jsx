@@ -10,7 +10,7 @@ const Course = ({ course ,handleClickToAdd}) => {
     const { thumbnail, course_name, details, credit, price,dollar,book } = course;
     return (
         <div >
-            <div className="card  bg-base-100 shadow-xl">
+            <div className="card  bg-base-100 shadow-2xl">
                 <figure><img className='h-[244px] rounded-lg p-3' src={thumbnail} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-xl">{course_name}</h2>

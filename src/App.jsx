@@ -8,7 +8,8 @@ import Courses from './Components/Courses/Courses'
 function App() {
 
   const [bookmarks, setBookmarks] = useState([]);
-  const [totalcredit,setTotalCredit] = useState(0);
+  const [totalcredit, setTotalCredit] = useState(0);
+  const [totalRemining, setTotalRemining] = useState(20);
 
   const handleClickToAdd = course => {
 
@@ -25,7 +26,9 @@ function App() {
       bookmarks.forEach(element => {
         count = count + element.credit;
       });
+      const totalRemining = 20 - count;
       setTotalCredit(count);
+      setTotalRemining(totalRemining);
       const newBookmarks = [...bookmarks, course];
       setBookmarks(newBookmarks);
     }
@@ -39,7 +42,7 @@ function App() {
       <h1 className='text-3xl font-medium text-center mt-4'>Course Registration</h1>
       <div className='flex'>
         <Courses handleClickToAdd={handleClickToAdd}></Courses>
-        <Bookmarks bookmarks={bookmarks} totalcredit={totalcredit}></Bookmarks>
+        <Bookmarks bookmarks={bookmarks} totalRemining={totalRemining} totalcredit={totalcredit}></Bookmarks>
       </div>
     </>
   )

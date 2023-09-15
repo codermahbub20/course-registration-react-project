@@ -7,7 +7,7 @@ const Bookmark = ({bookmark}) => {
     return (
         <div > 
           <li className='bg-gray-100 mb-2 text-2xl'>{course_name}</li>
-          <hr />
+         
         </div>
     );
 };

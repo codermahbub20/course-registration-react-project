@@ -7,11 +7,29 @@ import Courses from './Components/Courses/Courses'
 
 function App() {
 
-  const [bookmarks,setBookmarks] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]);
 
-  const handleClickToAdd = course =>{
-   const newBookmarks = [...bookmarks,course];
-   setBookmarks(newBookmarks);
+  const handleClickToAdd = course => {
+
+    const isExist = bookmarks.find((item) => item.id == course.id);
+    let count = course.credit;
+    if (isExist) {
+      // <div className="toast">
+      //   <div className="alert alert-info">
+      //     <span>New message arrived.</span>
+      //   </div>
+      // </div>
+    } else {
+
+      bookmarks.forEach(element => {
+        count = count + element.credit;
+      });
+      console.log(count);
+      const newBookmarks = [...bookmarks, course];
+      setBookmarks(newBookmarks);
+    }
+
+
   }
 
   return (
@@ -19,8 +37,8 @@ function App() {
     <>
       <h1 className='text-3xl font-medium text-center mt-4'>Course Registration</h1>
       <div className='flex'>
-      <Courses handleClickToAdd={handleClickToAdd}></Courses>
-      <Bookmarks bookmarks={bookmarks}></Bookmarks>
+        <Courses handleClickToAdd={handleClickToAdd}></Courses>
+        <Bookmarks bookmarks={bookmarks}></Bookmarks>
       </div>
     </>
   )
